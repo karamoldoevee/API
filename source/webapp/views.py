@@ -43,3 +43,21 @@ def api_subtract(request):
             return JsonResponse(data)
         except:
             raise HttpResponseBadRequest
+
+@csrf_exempt
+def api_multiply(request):
+    result = None
+    if request.body:
+        request_data = json.loads(request.body)
+        A = request_data['A']
+        B = request_data['B']
+        try:
+            a = int(A)
+            b = int(B)
+            result = A * B
+            data = {
+                'result': result
+            }
+            return JsonResponse(data)
+        except:
+            raise HttpResponseBadRequest
