@@ -79,3 +79,6 @@ def api_divide(request):
             return JsonResponse(data)
         except:
             raise HttpResponseBadRequest
+
+def index(request):
+    return render(request, 'index.html')
